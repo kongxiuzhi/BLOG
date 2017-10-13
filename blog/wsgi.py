@@ -8,9 +8,16 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
 import os
+import sys
+from os.path import join,dirname,abspath
+PROJECT_DIR = dirname(dirname(abspath(__file__)))
+sys.path.insert(0,PROJECT_DIR)
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "blog.settings")
+os.environ["DJANGO_SETTINGS_MODULE"]="blog.settings"
+
+
+
 
 application = get_wsgi_application()
